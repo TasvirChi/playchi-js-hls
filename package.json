@@ -1,26 +1,26 @@
 {
-  "name": "@playkit-js/playkit-js-hls",
+  "name": "@playchi-js/playchi-js-hls",
   "version": "1.32.11",
   "description": "",
   "keywords": [
     "hls",
     "m3u8",
-    "kaltura",
+    "tasvirchi",
     "player",
-    "playkit-js",
-    "playkit-js-hls",
+    "playchi-js",
+    "playchi-js-hls",
     "html5 player"
   ],
-  "homepage": "https://github.com/kaltura/playkit-js-hls#readme",
+  "homepage": "https://github.com/tasvirchi/playchi-js-hls#readme",
   "bugs": {
-    "url": "https://github.com/kaltura/playkit-js-hls/issues"
+    "url": "https://github.com/tasvirchi/playchi-js-hls/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kaltura/playkit-js-hls.git"
+    "url": "git+https://github.com/tasvirchi/playchi-js-hls.git"
   },
   "license": "AGPL-3.0",
-  "main": "dist/playkit-hls.js",
+  "main": "dist/playchi-hls.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist/**/*",
@@ -53,8 +53,8 @@
     "@babel/preset-env": "^7.23.5",
     "@babel/preset-typescript": "^7.22.15",
     "@microsoft/api-extractor": "^7.38.0",
-    "@playkit-js/browserslist-config": "1.0.8",
-    "@playkit-js/playkit-js": "canary",
+    "@playchi-js/browserslist-config": "1.0.8",
+    "@playchi-js/playchi-js": "canary",
     "@types/chai": "^4.3.3",
     "@types/mocha": "^9.1.1",
     "@types/sinon": "^10.0.20",
@@ -85,16 +85,16 @@
     "webpack-dev-server": "^4.15.1"
   },
   "peerDependencies": {
-    "@playkit-js/playkit-js": "canary",
+    "@playchi-js/playchi-js": "canary",
     "hls.js": "^1.2.0"
   },
   "browserslist": [
-    "extends @playkit-js/browserslist-config"
+    "extends @playchi-js/browserslist-config"
   ],
   "publishConfig": {
     "access": "public"
   },
   "kcc": {
-    "name": "playkit-hls"
+    "name": "playchi-hls"
   }
 }

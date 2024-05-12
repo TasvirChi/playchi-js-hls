@@ -1,13 +1,13 @@
-# PlayKit JS HLS - [HLS.JS] Adapter for the [PlayKit JS Player]
+# PlayChi JS HLS - [HLS.JS] Adapter for the [PlayChi JS Player]
 
-[![Build Status](https://github.com/kaltura/playkit-js-hls/actions/workflows/run_canary_full_flow.yaml/badge.svg)](https://github.com/kaltura/playkit-js-hls/actions/workflows/run_canary_full_flow.yaml)
+[![Build Status](https://github.com/tasvirchi/playchi-js-hls/actions/workflows/run_canary_full_flow.yaml/badge.svg)](https://github.com/tasvirchi/playchi-js-hls/actions/workflows/run_canary_full_flow.yaml)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
-[![](https://img.shields.io/npm/v/@playkit-js/playkit-js-hls/latest.svg)](https://www.npmjs.com/package/@playkit-js/playkit-js-hls)
-[![](https://img.shields.io/npm/v/@playkit-js/playkit-js-hls/canary.svg)](https://www.npmjs.com/package/@playkit-js/playkit-js-hls/v/canary)
+[![](https://img.shields.io/npm/v/@playchi-js/playchi-js-hls/latest.svg)](https://www.npmjs.com/package/@playchi-js/playchi-js-hls)
+[![](https://img.shields.io/npm/v/@playchi-js/playchi-js-hls/canary.svg)](https://www.npmjs.com/package/@playchi-js/playchi-js-hls/v/canary)
 
-PlayKit JS HLS adapter integrates [HLS.JS] with the [PlayKit JS Player].
+PlayChi JS HLS adapter integrates [HLS.JS] with the [PlayChi JS Player].
 
-PlayKit JS HLS is written in [ECMAScript6], statically analysed using [Flow] and transpiled in ECMAScript5 using [Babel].
+PlayChi JS HLS is written in [ECMAScript6], statically analysed using [Flow] and transpiled in ECMAScript5 using [Babel].
 
 [hls.js]: https://github.com/video-dev/hls.js
 [hls.js api docs]: https://github.com/video-dev/hls.js/blob/master/docs/API.md
@@ -19,11 +19,11 @@ PlayKit JS HLS is written in [ECMAScript6], statically analysed using [Flow] and
 
 ### Prerequisites
 
-The adapter requires [PlayKit JS Player] to be loaded first.
+The adapter requires [PlayChi JS Player] to be loaded first.
 
 The adapter uses the [HLS.JS] javascript library.
 
-[playkit js player]: https://github.com/kaltura/playkit-js
+[playchi js player]: https://github.com/tasvirchi/playchi-js
 
 ### Installing
 
@@ -32,8 +32,8 @@ First, clone and run [yarn] to install dependencies:
 [yarn]: https://yarnpkg.com/lang/en/
 
 ```
-git clone https://github.com/kaltura/playkit-js-hls.git
-cd playkit-js-hls
+git clone https://github.com/tasvirchi/playchi-js-hls.git
+cd playchi-js-hls
 yarn install
 ```
 
@@ -50,13 +50,13 @@ yarn run build
 Finally, add the bundle as a script tag in your page, and initialize the player
 
 ```html
-<script type="text/javascript" src="/PATH/TO/FILE/playkit.js"></script>
-<script type="text/javascript" src="/PATH/TO/FILE/playkit-hls.js"></script>
+<script type="text/javascript" src="/PATH/TO/FILE/playchi.js"></script>
+<script type="text/javascript" src="/PATH/TO/FILE/playchi-hls.js"></script>
 <div id="player-placeholder"" style="height:360px; width:640px">
 <script type="text/javascript">
   var playerContainer = document.querySelector("#player-placeholder");
   var config = {...};
-  var player = playkit.core.loadPlayer(config);
+  var player = playchi.core.loadPlayer(config);
   playerContainer.appendChild(player.getView());
   player.play();
 </script>
@@ -64,7 +64,7 @@ Finally, add the bundle as a script tag in your page, and initialize the player
 
 ## Configuration
 
-[HLS.JS] configuration options, documented @[HLS.JS API docs], can be passed via the [PlayKit JS Player] config.
+[HLS.JS] configuration options, documented @[HLS.JS API docs], can be passed via the [PlayChi JS Player] config.
 
 The configuration is exposed via the playback section:
 
@@ -118,7 +118,7 @@ Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c6
 
 ## Versioning
 
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/kaltura/playkit-js-hls/tags).
+We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/tasvirchi/playchi-js-hls/tags).
 
 ## License
 

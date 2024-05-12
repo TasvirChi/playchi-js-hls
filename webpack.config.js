@@ -33,11 +33,11 @@ module.exports = (env, {mode}) => {
       extensions: ['.ts', '.js']
     },
     output: {
-      filename: 'playkit-hls.js',
+      filename: 'playchi-hls.js',
       path: path.resolve(__dirname, 'dist'),
       library: {
         umdNamedDefine: true,
-        name: ['playkit', 'hls'],
+        name: ['playchi', 'hls'],
         type: 'umd'
       },
       clean: true
@@ -49,11 +49,11 @@ module.exports = (env, {mode}) => {
         amd: 'hls.js',
         root: ['Hls']
       },
-      '@playkit-js/playkit-js': {
-        commonjs: '@playkit-js/playkit-js',
-        commonjs2: '@playkit-js/playkit-js',
-        amd: 'playkit-js',
-        root: ['playkit', 'core']
+      '@playchi-js/playchi-js': {
+        commonjs: '@playchi-js/playchi-js',
+        commonjs2: '@playchi-js/playchi-js',
+        amd: 'playchi-js',
+        root: ['playchi', 'core']
       }
     },
     devServer: {

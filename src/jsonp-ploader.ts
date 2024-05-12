@@ -1,6 +1,6 @@
 // eslint-disable-next-line  @typescript-eslint/ban-ts-comment
 // @ts-nocheck
-import {Utils} from '@playkit-js/playkit-js';
+import {Utils} from '@playchi-js/playchi-js';
 import loader from './loader';
 
 /**

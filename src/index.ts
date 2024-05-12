@@ -1,4 +1,4 @@
-import {registerMediaSourceAdapter} from '@playkit-js/playkit-js';
+import {registerMediaSourceAdapter} from '@playchi-js/playchi-js';
 import HlsAdapter from './hls-adapter';
 
 const VERSION = __VERSION__;

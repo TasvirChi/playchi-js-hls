@@ -6,7 +6,7 @@ import {
   AudioTrack,
   BaseMediaSourceAdapter,
   Env,
-  Error as PKError,
+  Error as PCError,
   EventType,
   TextTrack,
   Track,
@@ -14,10 +14,10 @@ import {
   VideoTrack,
   RequestType,
   filterTracksByRestriction,
-  PKABRRestrictionObject,
+  PCABRRestrictionObject,
   TimedMetadata,
-  createTimedMetadata, PKMediaSourceObject, PKResponseObject, PKRequestObject, IMediaSourceAdapter
-} from '@playkit-js/playkit-js';
+  createTimedMetadata, PCMediaSourceObject, PCResponseObject, PCRequestObject, IMediaSourceAdapter
+} from '@playchi-js/playchi-js';
 import pLoader from './jsonp-ploader';
 import loader from './loader';
 import {ILogger } from 'js-logger'
@@ -148,12 +148,12 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
    * Factory method to create media source adapter.
    * @function createAdapter
    * @param {HTMLVideoElement} videoElement - The video element that the media source adapter work with.
-   * @param {PKMediaSourceObject} source - The source Object.
+   * @param {PCMediaSourceObject} source - The source Object.
    * @param {Object} config - The player configuration.
    * @returns {IMediaSourceAdapter} - New instance of the run time media source adapter.
    * @static
    */
-  public static createAdapter(videoElement: HTMLVideoElement, source: PKMediaSourceObject, config: any): IMediaSourceAdapter {
+  public static createAdapter(videoElement: HTMLVideoElement, source: PCMediaSourceObject, config: any): IMediaSourceAdapter {
     const adapterConfig: any = Utils.Object.copyDeep(DefaultConfig);
     if (Utils.Object.hasPropertyPath(config, 'sources.options')) {
       const options = config.sources.options;
@@ -255,10 +255,10 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
   /**
    * @constructor
    * @param {HTMLVideoElement} videoElement - The video element which will bind to the hls adapter
-   * @param {PKMediaSourceObject} source - The source object
+   * @param {PCMediaSourceObject} source - The source object
    * @param {Object} config - The media source adapter configuration
    */
-  constructor(videoElement: HTMLVideoElement, source: PKMediaSourceObject, config: any) {
+  constructor(videoElement: HTMLVideoElement, source: PCMediaSourceObject, config: any) {
     super(videoElement, source, config);
     HlsAdapter._logger.debug('Creating adapter. Hls version: ' + Hlsjs.version);
     this._config = Utils.Object.mergeDeep({}, DefaultConfig, this._config);
@@ -289,18 +289,18 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
         loader,
         xhrSetup: (xhr, url, context) => {
           let requestFilterPromise;
-          const pkRequest: PKRequestObject = {url, body: null, headers: {}};
+          const pcRequest: PCRequestObject = {url, body: null, headers: {}};
           try {
             if (context.type === 'manifest') {
-              requestFilterPromise = this._config.network.requestFilter(RequestType.MANIFEST, pkRequest);
+              requestFilterPromise = this._config.network.requestFilter(RequestType.MANIFEST, pcRequest);
             }
             if (context.frag && context.frag.type !== 'subtitle') {
-              requestFilterPromise = this._config.network.requestFilter(RequestType.SEGMENT, pkRequest);
+              requestFilterPromise = this._config.network.requestFilter(RequestType.SEGMENT, pcRequest);
             }
           } catch (error) {
             requestFilterPromise = Promise.reject(error);
           }
-          requestFilterPromise = requestFilterPromise || Promise.resolve(pkRequest);
+          requestFilterPromise = requestFilterPromise || Promise.resolve(pcRequest);
           return requestFilterPromise
             .then(updatedRequest => {
               context.url = updatedRequest.url;
@@ -362,7 +362,7 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
                 }
                 stats.loaded = stats.total = len;
 
-                const pkResponse: PKResponseObject = {
+                const pcResponse: PCResponseObject = {
                   url: xhr.responseURL,
                   originalUrl: context.url,
                   data,
@@ -371,15 +371,15 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
                 let responseFilterPromise;
                 try {
                   if (context.type === 'manifest') {
-                    responseFilterPromise = self._config.network.responseFilter(RequestType.MANIFEST, pkResponse);
+                    responseFilterPromise = self._config.network.responseFilter(RequestType.MANIFEST, pcResponse);
                   }
                   if (context.frag && context.frag.type !== 'subtitle') {
-                    responseFilterPromise = self._config.network.responseFilter(RequestType.SEGMENT, pkResponse);
+                    responseFilterPromise = self._config.network.responseFilter(RequestType.SEGMENT, pcResponse);
                   }
                 } catch (error) {
                   responseFilterPromise = Promise.reject(error);
                 }
-                responseFilterPromise = responseFilterPromise || Promise.resolve(pkResponse);
+                responseFilterPromise = responseFilterPromise || Promise.resolve(pcResponse);
                 return responseFilterPromise
                   .then(updatedResponse => {
                     this.callbacks.onSuccess(updatedResponse, stats, context, xhr);
@@ -496,7 +496,7 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
       this._reset();
 
       this._loadPromiseHandlers?.reject(
-        new PKError(PKError.Severity.CRITICAL, PKError.Category.PLAYER, PKError.Code.HLS_FATAL_MEDIA_ERROR, 'media detached while loading')
+        new PCError(PCError.Severity.CRITICAL, PCError.Category.PLAYER, PCError.Code.HLS_FATAL_MEDIA_ERROR, 'media detached while loading')
       );
       this._loadPromiseHandlers = null;
       this._loadPromise = undefined;
@@ -553,7 +553,7 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
       this._trigger(EventType.ABR_MODE_CHANGED, {mode: this.isAdaptiveBitrateEnabled() ? 'auto' : 'manual'});
     } else {
       this._loadPromiseHandlers?.reject(
-        new PKError(PKError.Severity.CRITICAL, PKError.Category.PLAYER, PKError.Code.HLS_FATAL_MEDIA_ERROR, 'no url provided')
+        new PCError(PCError.Severity.CRITICAL, PCError.Category.PLAYER, PCError.Code.HLS_FATAL_MEDIA_ERROR, 'no url provided')
       );
     }
   }
@@ -592,10 +592,10 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
           this._sameFragSNLoadedCount = 0;
           this._lastLoadedFragSN = -1;
           this._loadPromiseHandlers?.reject(
-            new PKError(
-              PKError.Severity.CRITICAL,
-              PKError.Category.PLAYER,
-              PKError.Code.HLS_FATAL_MEDIA_ERROR,
+            new PCError(
+              PCError.Severity.CRITICAL,
+              PCError.Category.PLAYER,
+              PCError.Code.HLS_FATAL_MEDIA_ERROR,
               'The adapter has been destroyed while loading'
             )
           );
@@ -836,11 +836,11 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
   /**
    * Apply ABR restriction.
    * @function applyABRRestriction
-   * @param {PKABRRestrictionObject} restrictions - abr restrictions config
+   * @param {PCABRRestrictionObject} restrictions - abr restrictions config
    * @returns {void}
    * @public
    */
-  public applyABRRestriction(restrictions: PKABRRestrictionObject): void {
+  public applyABRRestriction(restrictions: PCABRRestrictionObject): void {
     Utils.Object.createPropertyPath(this._config, 'abr.restrictions', restrictions);
     if (!this._hls.capLevelToPlayerSize) {
       this._maybeApplyAbrRestrictions(restrictions);
@@ -958,10 +958,10 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
   /**
    * apply ABR restrictions
    * @private
-   * @param {PKABRRestrictionObject} restrictions - abt config object
+   * @param {PCABRRestrictionObject} restrictions - abt config object
    * @returns {void}
    */
-  private _maybeApplyAbrRestrictions(restrictions: PKABRRestrictionObject): void {
+  private _maybeApplyAbrRestrictions(restrictions: PCABRRestrictionObject): void {
     const videoTracks = this._playerTracks.filter(track => track instanceof VideoTrack) as VideoTrack[];
     const availableTracks = filterTracksByRestriction(videoTracks, restrictions);
     if (availableTracks.length) {
@@ -1100,17 +1100,17 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
     const errorFatal = data.fatal;
     const errorDataObject: any = this._getErrorDataObject(data);
     if (errorFatal) {
-      let error: PKError;
+      let error: PCError;
       switch (errorType) {
       case Hlsjs.ErrorTypes.NETWORK_ERROR:
         {
           let code;
           if (this._requestFilterError) {
-            code = PKError.Code.REQUEST_FILTER_ERROR;
+            code = PCError.Code.REQUEST_FILTER_ERROR;
           } else if (this._responseFilterError) {
-            code = PKError.Code.RESPONSE_FILTER_ERROR;
+            code = PCError.Code.RESPONSE_FILTER_ERROR;
           } else {
-            code = PKError.Code.HTTP_ERROR;
+            code = PCError.Code.HTTP_ERROR;
           }
           if (
             [Hlsjs.ErrorDetails.MANIFEST_LOAD_ERROR, Hlsjs.ErrorDetails.MANIFEST_LOAD_TIMEOUT].includes(errorName) &&
@@ -1119,26 +1119,26 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
               !this._requestFilterError &&
               !this._responseFilterError
           ) {
-            error = new PKError(PKError.Severity.RECOVERABLE, PKError.Category.NETWORK, code, errorDataObject);
+            error = new PCError(PCError.Severity.RECOVERABLE, PCError.Category.NETWORK, code, errorDataObject);
             this._reloadWithDirectManifest();
           } else {
-            error = new PKError(PKError.Severity.CRITICAL, PKError.Category.NETWORK, code, errorDataObject);
+            error = new PCError(PCError.Severity.CRITICAL, PCError.Category.NETWORK, code, errorDataObject);
           }
         }
         break;
       case Hlsjs.ErrorTypes.MEDIA_ERROR:
         if (this._handleMediaError(errorName)) {
-          error = new PKError(PKError.Severity.RECOVERABLE, PKError.Category.MEDIA, PKError.Code.HLS_FATAL_MEDIA_ERROR, errorDataObject);
+          error = new PCError(PCError.Severity.RECOVERABLE, PCError.Category.MEDIA, PCError.Code.HLS_FATAL_MEDIA_ERROR, errorDataObject);
         } else {
-          error = new PKError(PKError.Severity.CRITICAL, PKError.Category.MEDIA, PKError.Code.HLS_FATAL_MEDIA_ERROR, errorDataObject);
+          error = new PCError(PCError.Severity.CRITICAL, PCError.Category.MEDIA, PCError.Code.HLS_FATAL_MEDIA_ERROR, errorDataObject);
         }
         break;
       default:
-        error = new PKError(PKError.Severity.CRITICAL, PKError.Category.PLAYER, PKError.Code.HLS_FATAL_MEDIA_ERROR, errorDataObject);
+        error = new PCError(PCError.Severity.CRITICAL, PCError.Category.PLAYER, PCError.Code.HLS_FATAL_MEDIA_ERROR, errorDataObject);
         break;
       }
       this._trigger(EventType.ERROR, error);
-      if (error && error.severity === PKError.Severity.CRITICAL) {
+      if (error && error.severity === PCError.Severity.CRITICAL) {
         if (this._loadPromiseHandlers) {
           this._loadPromiseHandlers?.reject(error);
           this._loadPromiseHandlers = null;
@@ -1150,11 +1150,11 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
       const {category, code}: ErrorDetailsType =
         this._requestFilterError || this._responseFilterError
           ? {
-            category: PKError.Category.NETWORK,
-            code: this._requestFilterError ? PKError.Code.REQUEST_FILTER_ERROR : PKError.Code.RESPONSE_FILTER_ERROR
+            category: PCError.Category.NETWORK,
+            code: this._requestFilterError ? PCError.Code.REQUEST_FILTER_ERROR : PCError.Code.RESPONSE_FILTER_ERROR
           }
           : HlsJsErrorMap[errorName] || {category: 0, code: 0};
-      HlsAdapter._logger.warn(new PKError(PKError.Severity.RECOVERABLE, category, code, errorDataObject));
+      HlsAdapter._logger.warn(new PCError(PCError.Severity.RECOVERABLE, category, code, errorDataObject));
     }
     this._requestFilterError = false;
     this._responseFilterError = false;
@@ -1297,7 +1297,7 @@ export default class HlsAdapter extends BaseMediaSourceAdapter {
         HlsAdapter._logger.debug(`Same frag SN. Count is: ${this._sameFragSNLoadedCount}, Max is: ${this._config.network.maxStaleLevelReloads}`);
         if (this._sameFragSNLoadedCount >= this._config.network.maxStaleLevelReloads) {
           HlsAdapter._logger.error('Same frag loading reached max count');
-          const error = new PKError(PKError.Severity.CRITICAL, PKError.Category.NETWORK, PKError.Code.LIVE_MANIFEST_REFRESH_ERROR, {
+          const error = new PCError(PCError.Severity.CRITICAL, PCError.Category.NETWORK, PCError.Code.LIVE_MANIFEST_REFRESH_ERROR, {
             fragSN: endSN
           });
           this._trigger(EventType.ERROR, error);

@@ -161,20 +161,20 @@
     }
   },
   "kind": "Package",
-  "canonicalReference": "@playkit-js/playkit-js-hls!",
+  "canonicalReference": "@playchi-js/playchi-js-hls!",
   "docComment": "",
-  "name": "@playkit-js/playkit-js-hls",
+  "name": "@playchi-js/playchi-js-hls",
   "preserveMemberOrder": false,
   "members": [
     {
       "kind": "EntryPoint",
-      "canonicalReference": "@playkit-js/playkit-js-hls!",
+      "canonicalReference": "@playchi-js/playchi-js-hls!",
       "name": "",
       "preserveMemberOrder": false,
       "members": [
         {
           "kind": "Class",
-          "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter:class",
+          "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter:class",
           "docComment": "/**\n * Adapter of hls.js lib for hls content.  @classdesc\n */\n",
           "excerptTokens": [
             {
@@ -184,7 +184,7 @@
             {
               "kind": "Reference",
               "text": "BaseMediaSourceAdapter",
-              "canonicalReference": "@playkit-js/playkit-js!BaseMediaSourceAdapter:class"
+              "canonicalReference": "@playchi-js/playchi-js!BaseMediaSourceAdapter:class"
             },
             {
               "kind": "Content",
@@ -199,7 +199,7 @@
           "members": [
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#_getLiveEdge:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#_getLiveEdge:member(1)",
               "docComment": "/**\n * Returns the live edge\n *\n * @returns {number} - live edge  @private\n */\n",
               "excerptTokens": [
                 {
@@ -230,7 +230,7 @@
             },
             {
               "kind": "Property",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter._logger:member",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter._logger:member",
               "docComment": "/**\n * The adapter logger.  @member {any} _logger  @static  @private\n */\n",
               "excerptTokens": [
                 {
@@ -265,7 +265,7 @@
             },
             {
               "kind": "Constructor",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter:constructor(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter:constructor(1)",
               "docComment": "/**\n * @constructor Constructs a new instance of the `HlsAdapter` class\n *\n * @param videoElement - The video element which will bind to the hls adapter\n *\n * @param source - The source object\n *\n * @param config - The media source adapter configuration\n */\n",
               "excerptTokens": [
                 {
@@ -283,8 +283,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceObject",
-                  "canonicalReference": "@playkit-js/playkit-js!PKMediaSourceObject:type"
+                  "text": "PCMediaSourceObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
                 },
                 {
                   "kind": "Content",
@@ -331,7 +331,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#applyABRRestriction:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#applyABRRestriction:member(1)",
               "docComment": "/**\n * Apply ABR restriction.  @function applyABRRestriction\n *\n * @param restrictions - abr restrictions config\n *\n * @returns {void}\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -340,8 +340,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKABRRestrictionObject",
-                  "canonicalReference": "@playkit-js/playkit-js!PKABRRestrictionObject:type"
+                  "text": "PCABRRestrictionObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCABRRestrictionObject:type"
                 },
                 {
                   "kind": "Content",
@@ -380,7 +380,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#attachMediaSource:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#attachMediaSource:member(1)",
               "docComment": "/**\n * attach media - return the media source to handle the video tag\n *\n * @returns {void}\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -411,7 +411,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter.canPlayDrm:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter.canPlayDrm:member(1)",
               "docComment": "/**\n * Checks if hls adapter can play a given drm data. For hls.js it always returns false.\n *\n * @returns {boolean} - Whether the hls adapter can play a specific drm data.  @static\n */\n",
               "excerptTokens": [
                 {
@@ -442,7 +442,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter.canPlayType:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter.canPlayType:member(1)",
               "docComment": "/**\n * Checks if hls adapter can play a given mime type.  @function canPlayType\n *\n * @param mimeType - The mime type to check.\n *\n * @returns {boolean} - Whether the hls adapter can play a specific mime type.  @static\n */\n",
               "excerptTokens": [
                 {
@@ -490,7 +490,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter.createAdapter:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter.createAdapter:member(1)",
               "docComment": "/**\n * Factory method to create media source adapter.  @function createAdapter\n *\n * @param videoElement - The video element that the media source adapter work with.\n *\n * @param source - The source Object.\n *\n * @param config - The player configuration.\n *\n * @returns {IMediaSourceAdapter} - New instance of the run time media source adapter.  @static\n */\n",
               "excerptTokens": [
                 {
@@ -508,8 +508,8 @@
                 },
                 {
                   "kind": "Reference",
-                  "text": "PKMediaSourceObject",
-                  "canonicalReference": "@playkit-js/playkit-js!PKMediaSourceObject:type"
+                  "text": "PCMediaSourceObject",
+                  "canonicalReference": "@playchi-js/playchi-js!PCMediaSourceObject:type"
                 },
                 {
                   "kind": "Content",
@@ -526,7 +526,7 @@
                 {
                   "kind": "Reference",
                   "text": "IMediaSourceAdapter",
-                  "canonicalReference": "@playkit-js/playkit-js!IMediaSourceAdapter:interface"
+                  "canonicalReference": "@playchi-js/playchi-js!IMediaSourceAdapter:interface"
                 },
                 {
                   "kind": "Content",
@@ -573,7 +573,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#destroy:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#destroy:member(1)",
               "docComment": "/**\n * Destroys the hls adapter.  @function destroy\n *\n * @returns {Promise<*>} - The destroy promise.\n *\n * @override\n */\n",
               "excerptTokens": [
                 {
@@ -609,7 +609,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#detachMediaSource:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#detachMediaSource:member(1)",
               "docComment": "/**\n * detach media - will remove the media source from handling the video\n *\n * @returns {void}\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -640,7 +640,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#enableAdaptiveBitrate:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#enableAdaptiveBitrate:member(1)",
               "docComment": "/**\n * Enables adaptive bitrate switching according to hls.js logic.  @function enableAdaptiveBitrate\n *\n * @returns {void}\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -671,7 +671,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#getSegmentDuration:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#getSegmentDuration:member(1)",
               "docComment": "/**\n * Gets the segment duration of the stream  @return {number} - Segment duration in seconds\n */\n",
               "excerptTokens": [
                 {
@@ -702,7 +702,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#getStartTimeOfDvrWindow:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#getStartTimeOfDvrWindow:member(1)",
               "docComment": "/**\n * Get the start time of DVR window in live playback in seconds.\n *\n * @returns {Number} - start time of DVR window.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -733,7 +733,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#handleMediaError:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#handleMediaError:member(1)",
               "docComment": "/**\n * video error event handler.\n *\n * @param error - the media error\n *\n * @returns {boolean} if hls-adapter will try to recover\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -782,7 +782,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#hideTextTrack:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#hideTextTrack:member(1)",
               "docComment": "/**\n * Hide the text track  @function hideTextTrack\n *\n * @returns {void}\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -813,7 +813,7 @@
             },
             {
               "kind": "Property",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter.id:member",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter.id:member",
               "docComment": "/**\n * The id of the adapter.  @member {string} id  @static  @private\n */\n",
               "excerptTokens": [
                 {
@@ -843,7 +843,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#isAdaptiveBitrateEnabled:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#isAdaptiveBitrateEnabled:member(1)",
               "docComment": "/**\n * Checking if adaptive bitrate switching is enabled.  @function isAdaptiveBitrateEnabled\n *\n * @returns {boolean} - Whether adaptive bitrate is enabled.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -874,7 +874,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#isLive:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#isLive:member(1)",
               "docComment": "/**\n * Checking if the current playback is live.  @function isLive\n *\n * @returns {boolean} - Whether playback is live.\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -905,7 +905,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter.isSupported:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter.isSupported:member(1)",
               "docComment": "/**\n * Checks if the hls adapter is supported.  @function isSupported\n *\n * @returns {boolean} - Whether hls is supported.  @static\n */\n",
               "excerptTokens": [
                 {
@@ -936,7 +936,7 @@
             },
             {
               "kind": "Property",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#liveDuration:member",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#liveDuration:member",
               "docComment": "/**\n * Gets the live duration  @return {number} - live duration\n */\n",
               "excerptTokens": [
                 {
@@ -966,7 +966,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#load:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#load:member(1)",
               "docComment": "/**\n * Load the video source  @function load\n *\n * @param startTime - Optional time to start the video from.\n *\n * @returns {Promise<Object>} - The loaded data\n *\n * @override\n */\n",
               "excerptTokens": [
                 {
@@ -1019,7 +1019,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#seekToLiveEdge:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#seekToLiveEdge:member(1)",
               "docComment": "/**\n * Seeking to live edge, calculated according hls configuration - liveSyncDuration or liveSyncDurationCount.  @function seekToLiveEdge\n *\n * @returns {void}\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -1050,7 +1050,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#selectAudioTrack:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#selectAudioTrack:member(1)",
               "docComment": "/**\n * Select an audio track.  @function selectAudioTrack\n *\n * @param audioTrack - the audio track to select.\n *\n * @returns {void}\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -1060,7 +1060,7 @@
                 {
                   "kind": "Reference",
                   "text": "AudioTrack",
-                  "canonicalReference": "@playkit-js/playkit-js!AudioTrack:class"
+                  "canonicalReference": "@playchi-js/playchi-js!AudioTrack:class"
                 },
                 {
                   "kind": "Content",
@@ -1099,7 +1099,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#selectTextTrack:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#selectTextTrack:member(1)",
               "docComment": "/**\n * Select a text track.  @function selectTextTrack\n *\n * @param textTrack - the track to select.\n *\n * @returns {void}\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -1109,7 +1109,7 @@
                 {
                   "kind": "Reference",
                   "text": "TextTrack",
-                  "canonicalReference": "@playkit-js/playkit-js!TextTrack_2:class"
+                  "canonicalReference": "@playchi-js/playchi-js!TextTrack_2:class"
                 },
                 {
                   "kind": "Content",
@@ -1148,7 +1148,7 @@
             },
             {
               "kind": "Method",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#selectVideoTrack:member(1)",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#selectVideoTrack:member(1)",
               "docComment": "/**\n * Select a video track.  @function selectVideoTrack\n *\n * @param videoTrack - the track to select.\n *\n * @returns {void}\n *\n * @public\n */\n",
               "excerptTokens": [
                 {
@@ -1158,7 +1158,7 @@
                 {
                   "kind": "Reference",
                   "text": "VideoTrack",
-                  "canonicalReference": "@playkit-js/playkit-js!VideoTrack:class"
+                  "canonicalReference": "@playchi-js/playchi-js!VideoTrack:class"
                 },
                 {
                   "kind": "Content",
@@ -1197,7 +1197,7 @@
             },
             {
               "kind": "Property",
-              "canonicalReference": "@playkit-js/playkit-js-hls!HlsAdapter#targetBuffer:member",
+              "canonicalReference": "@playchi-js/playchi-js-hls!HlsAdapter#targetBuffer:member",
               "docComment": "/**\n * returns value the player targets the buffer\n *\n * @returns {number} buffer target length in seconds\n */\n",
               "excerptTokens": [
                 {
@@ -1234,7 +1234,7 @@
         },
         {
           "kind": "Variable",
-          "canonicalReference": "@playkit-js/playkit-js-hls!NAME:var",
+          "canonicalReference": "@playchi-js/playchi-js-hls!NAME:var",
           "docComment": "",
           "excerptTokens": [
             {
@@ -1257,7 +1257,7 @@
         },
         {
           "kind": "Variable",
-          "canonicalReference": "@playkit-js/playkit-js-hls!VERSION:var",
+          "canonicalReference": "@playchi-js/playchi-js-hls!VERSION:var",
           "docComment": "",
           "excerptTokens": [
             {

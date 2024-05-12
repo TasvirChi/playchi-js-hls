@@ -1,5 +1,5 @@
 import Hlsjs from 'hls.js';
-import {Error} from '@playkit-js/playkit-js';
+import {Error} from '@playchi-js/playchi-js';
 
 type ErrorDetailsType = {category: number, code: number};
 type HlsJsErrorMapType = {[name: string]: ErrorDetailsType};
